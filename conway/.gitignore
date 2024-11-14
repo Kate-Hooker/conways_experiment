@@ -21,3 +21,63 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+
+ let board = [
+    [false, false, false],
+    [false, false, false],
+    [false, false, false],
+  ]
+
+  // write a function that can look at any cells neighbourhood and say what to do
+
+  function countLivingNeighbours(cx, cy, board) {
+
+    let count = 0
+
+for (const y of [cy -1, cy +1]) {
+  for (const x of [cx -1, cx, cx +1]) {
+    if (x === cx && y === cy) {continue}
+   
+  }
+
+  if (x < 0 || y >= board.length || y < 0 || x >= board.length) {
+    continue
+}
+
+  if (board[y][x]) {
+        count ++
+      }
+    }
+  }
+  return count
+}
+
+  //console.log(countLivingNeighbours(1, 1))
+
+  function shouldCellLive(x, y) {
+    // conways farm rules are
+    // 1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+    // 2. Any live cell with two or three live neighbours lives on to the next generation.
+    // 3. Any live cell with more than three live neighbours dies, as if by overcrowding.
+    // 4. If a dead cell has exactly three live neighbours, it comes to life.
+
+    let n = countLivingNeighbours(x, y)
+
+    let isAlive = board[y][x]
+
+    if (isAlive) {
+      return n === 2 || n === 3
+      // ie if neughbour count is 2 or 3, then the cell lives
+    }
+    // so if a cell has only 1 or 4 neighbours, it dies
+    return n === 3
+  }
+
+  return (
+    <div>
+      <h1>Conway's Game of Life</h1>
+    </div>
+  )
+}
