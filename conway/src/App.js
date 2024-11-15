@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Farm from './Farm'
 
 function App() {
   const initialBoard = [
@@ -69,6 +70,7 @@ function App() {
   return (
     <div>
       <h1>Conway's Game of Life</h1>
+      < Farm />
     </div>
   )
 }
