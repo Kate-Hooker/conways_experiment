@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+//import { useEffect, useState } from 'react'
 import Farm from './Farm'
 
 function App() {
-  const initialBoard = [
+  /* const initialBoard = [
     [false, true, false, false, false],
     [true, false, false, false, false],
     [false, false, false, false, false],
@@ -65,12 +65,31 @@ function App() {
     console.log('Next Generation Board:')
     console.table(nextGen)
     setBoard(nextGen)
-  }, [board])
+  }, [board])*/
 
   return (
     <div>
       <h1>Conway's Game of Life</h1>
-      < Farm />
+
+      <p>This is a simple implementation of Conway's Game of Life</p>
+      <p>The rules of migration are:</p>
+      <p>
+        1. Any live cell with two or three live neighbours survives, due to
+        population.
+      </p>
+      <p>
+        2. Any dead cell with three live neighbours becomes a live cell, by
+        migration.
+      </p>
+      <p>
+        3. Any live cell with more than three live neighbours dies, as if by
+        overpopulation.
+      </p>
+      <p>
+        4. Any live cell with less than two live neighbours dies, as if by
+        underpopulation.
+      </p>
+      <Farm />
     </div>
   )
 }
